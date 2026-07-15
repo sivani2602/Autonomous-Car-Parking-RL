@@ -1,99 +1,156 @@
-**Treasure Hunt using Reinforcement Learning (Q-Learning)**
+**Autonomous Car Parking System using Deep Reinforcement Learning**
 
-Treasure Hunt is a Reinforcement Learning project in which an intelligent agent learns to navigate a grid environment to reach a hidden treasure while avoiding obstacles. The project uses the **Q-Learning algorithm**, allowing the agent to learn the optimal path through trial-and-error interactions with the environment. An interactive Streamlit application enables users to customize the environment, train the agent, and visualize its learning process in real time.
+The Autonomous Car Parking System is a Reinforcement Learning-based simulation in which an intelligent car agent learns to navigate a parking environment, avoid obstacles, and successfully park in a designated parking space.The project utilizes the **Deep Q-Network (DQN)** algorithm, enabling the agent to learn optimal parking strategies through continuous interaction with the environment. A Streamlit web application is also provided to demonstrate the trained agent in an interactive and user-friendly interface.
 
 **Objectives**
 
-1. Implement the Q-Learning algorithm.
-2. Create an interactive Treasure Hunt environment.
-3. Train an intelligent agent to find the shortest path.
-4. Visualize agent movement.
-5. Demonstrate Reinforcement Learning concepts.
+1. Develop an autonomous parking simulation using Reinforcement Learning.
+2. Train an intelligent agent to navigate safely in a parking environment.
+3. Enable obstacle avoidance while reaching the designated parking space.
+4. Visualize the parking process through simulation.
+5. Demonstrate Deep Reinforcement Learning concepts using an interactive Streamlit application.
 
 **Features**
 
-- Interactive Streamlit Dashboard
-- Q-Learning Intelligent Agent
-- Custom Grid Size
-- Custom Start Position
-- Custom Treasure Position
-- User-defined Obstacles
-- Adjustable Learning Rate (α)
-- Adjustable Discount Factor (γ)
-- Configurable Exploration Rate (ε)
-- Real-time Agent Animation
-- Treasure Found Notification
-- Training Statistics
+- Deep Q-Network (DQN) based autonomous parking
+- Intelligent obstacle avoidance
+- Reward-based learning mechanism
+- Parking environment simulation
+- Interactive Streamlit dashboard
+- Real-time parking visualization
+- Trained agent demonstration
+- Customizable parking environment
 
 **Technologies Used**
 
 - Python
+- Reinforcement Learning
+- Deep Q-Network (DQN)
+- Stable-Baselines3
+- OpenAI Gym
 - NumPy
 - Matplotlib
 - Streamlit
-- Reinforcement Learning (Q-Learning)
 
 **Reinforcement Learning Algorithm**
 
-**Algorithm Used:**
+**Algorithm Used**
 
-Q-Learning : Q-Learning is a model-free Reinforcement Learning algorithm that enables an agent to learn the best action for every state by maximizing cumulative rewards through repeated interactions with the environment.
+Deep Q-Network (DQN)- Deep Q-Network combines Q-Learning with Deep Neural Networks to estimate optimal action values for each state. The agent improves its parking strategy by continuously interacting with the environment, receiving rewards, and updating its policy to maximize cumulative rewards.
 
 **Environment**
 
-The environment consists of:
+The parking environment consists of:
 
-- Grid World
-- Agent
-- Treasure
-- Obstacles
+- Car Agent
+- Target Parking Space
+- Static Obstacles
+- Parking Area
 - Reward System
+- Collision Detection
 
+**Available Actions**
+
+The autonomous agent can perform the following actions:
+
+- Move Forward
+- Move Backward
+- Turn Left
+- Turn Right
+ 
 **Reward Function**
+
+The agent learns using a reward-based system:
 
 | Action | Reward |
 |---------|--------|
-| Reach Treasure | +100 |
-| Hit Obstacle | -100 |
-| Valid Move | -1 |
+| Successfully Park | +100 |
+| Collision with Obstacle | -100 |
+| Move Closer to Parking Spot | +5 |
+| Normal Movement | -1 |
 
-**Q-Learning Parameters**
+The reward function encourages the agent to reach the parking location efficiently while avoiding unnecessary movements and collisions.
 
-- Learning Rate (α)
-- Discount Factor (γ)
-- Exploration Rate (ε)
-- Number of Episodes
-- Maximum Steps per Episode
+**Training Parameters**
 
-**Workflow**
-
-1. Initialize Environment
-2. Create Q-Table
-3. Train Agent using Q-Learning
-4. Update Q-Values
-5. Learn Optimal Path
-6. Test Trained Agent
-7. Visualize Agent Movement
-
-**Project Structure**
-
-Treasure-Hunt/
-
-├── app.py
-
-├── Treasure_Hunt.ipynb
-
-├── README.md
-
+- Algorithm: Deep Q-Network (DQN)
+- Training Library: Stable-Baselines3
+- Training Environment: OpenAI Gym
+- Total Training Steps: **50,000**
 
 **Results**
 
-The trained Q-Learning agent successfully learns the optimal path to the treasure while avoiding obstacles. The Streamlit interface allows users to observe the learning process and interactively modify the environment to test different scenarios.
+After training, the autonomous agent successfully learned to:
+
+- Navigate the parking environment
+- Avoid obstacles
+- Reach the target parking location
+- Park successfully with an overall success rate of approximately **81%**
+
+**Performance Summary**
+
+| Metric | Value |
+|---------|-------|
+| Algorithm | DQN |
+| Training Steps | 50,000 |
+| Success Rate | 81% |
+| Collisions | 4 |
+| Parking Completed | Yes |
+
+**Project Structure**
+
+Autonomous-Car-Parking-RL/
+
+├── app.py
+├── environment/
+│   └── parking_env.py
+├── notebooks/
+│   └── training.ipynb
+├── models/
+├── data/
+├── videos/
+│   └── parking_agent_demo.gif
+├── requirements.txt
+└── README.me
+
+**Installation**
+
+Clone the repository:
+
+```bash
+git clone https://github.com/sivani2602/Autonomous-Car-Parking-RL.git
+```
+
+Install the required libraries:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the Streamlit application:
+
+```bash
+python -m streamlit run app.py
+```
+
 
 **Future Improvements**
 
-- Multiple Treasure Locations
-- Dynamic Obstacles
-- Larger Grid Environments
-- Deep Q-Network (DQN) Implementation
-- Multi-Agent Treasure Hunt
+- Dynamic moving obstacles
+- Sensor-based perception
+- Multi-level parking environments
+- Continuous action space using PPO or SAC
+- Integration with computer vision techniques
+- Real-world autonomous vehicle simulation
+
+
+**Learning Outcomes**
+
+This project helped in understanding:
+
+- Reinforcement Learning fundamentals
+- Deep Q-Network (DQN)
+- Reward function design
+- Environment modeling using OpenAI Gym
+- Agent training using Stable-Baselines3
+- Interactive deployment using Streamlit
